@@ -1,0 +1,1 @@
+Create a UPGRADES array with ids, costs, and effect functions (speed multiplier, jump boost, coin magnet radius). Implement loadUpgrades/saveUpgrades with key silly-time.upgrades, canPurchase, purchase, and applyUpgrades(player, state). Ensure coin deductions and level caps per upgrade.
