@@ -1,1 +1,1 @@
-Implement a new endpoint using FastAPI to retrieve and update game data.
+Define a `GameState` Pydantic model and routes: `GET /game/{player_id}` returns default state if missing; `PUT /game/{player_id}` upserts validated state; `POST /game/{player_id}/upgrade` applies one upgrade and returns updated state. Wire the app to use `storage.get(player_id)` / `storage.set(player_id, state)` so frontend can sync progress.
