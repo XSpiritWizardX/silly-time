@@ -4,37 +4,204 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>silly-time</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <div class="page">
       <div class="orb orb--one"></div>
       <div class="orb orb--two"></div>
-      <div class="shell">
-        <header class="nav">
-          <div class="logo">silly-time</div>
-          <nav class="nav-links">
-            <a href="#features">Features</a>
-            <a href="#workflow">Workflow</a>
-            <a href="#pricing">Pricing</a>
-          </nav>
-          <a class="button" href="#cta">Get Access</a>
-        </header>
-        <main>
-          <section class="hero reveal">
-            <div>
-              <span class="badge">Ship faster · stay aligned</span>
-              <h1>silly-time keeps momentum high.</h1>
-              <p>A focused product built to ship faster.</p>
-              <form id="waitlist-form">
+      <div class="orb orb--three"></div>
+
+      <header class="nav shell">
+        <div class="logo">silly-time</div>
+        <nav class="nav-links">
+          <a href="#features">Features</a>
+          <a href="#workflow">Workflow</a>
+          <a href="#pricing">Pricing</a>
+        </nav>
+        <a class="button" href="#cta">Get Access</a>
+      </header>
+
+      <main class="shell">
+        <section class="hero reveal">
+          <div class="hero-copy">
+            <span class="badge">Ship faster - stay aligned</span>
+            <h1>silly-time keeps momentum high.</h1>
+            <p>Turn scattered ideas into clear sprints. Track decisions, rally the team, and keep velocity visible without the noise.</p>
+            <div class="hero-actions">
+              <form id="waitlist-form" class="waitlist">
                 <input type="email" name="email" placeholder="you@company.com" required />
                 <button class="button" type="submit">Join the waitlist</button>
               </form>
+              <div id="waitlist-message" class="waitlist-message" aria-live="polite"></div>
             </div>
-          </section>
-        </main>
-      </div>
+            <div class="hero-stats">
+              <div>
+                <strong>4x</strong>
+                <span>faster handoffs</span>
+              </div>
+              <div>
+                <strong>82%</strong>
+                <span>less status spam</span>
+              </div>
+              <div>
+                <strong>9 min</strong>
+                <span>avg standup</span>
+              </div>
+            </div>
+          </div>
+          <div class="hero-card">
+            <div class="card-header">Live Sprint Board</div>
+            <div class="card-body">
+              <div class="card-row">
+                <span class="chip chip--teal">Today</span>
+                <span class="chip">3 launches</span>
+              </div>
+              <div class="timeline">
+                <div class="timeline-item">
+                  <div class="dot"></div>
+                  <div>
+                    <h4>Scope lock</h4>
+                    <p>Decisions logged and shared</p>
+                  </div>
+                </div>
+                <div class="timeline-item">
+                  <div class="dot"></div>
+                  <div>
+                    <h4>Build streak</h4>
+                    <p>9 days with no drift</p>
+                  </div>
+                </div>
+                <div class="timeline-item">
+                  <div class="dot"></div>
+                  <div>
+                    <h4>Launch day</h4>
+                    <p>Checklist green across teams</p>
+                  </div>
+                </div>
+              </div>
+              <button class="ghost">View full sprint</button>
+            </div>
+          </div>
+        </section>
+
+        <section id="features" class="features reveal">
+          <div class="section-title">
+            <h2>Momentum that feels obvious</h2>
+            <p>Signals that keep everyone moving in the same direction.</p>
+          </div>
+          <div class="grid">
+            <article class="feature-card">
+              <h3>Decision vault</h3>
+              <p>Every choice, owner, and tradeoff in one place.</p>
+            </article>
+            <article class="feature-card">
+              <h3>Focus lanes</h3>
+              <p>Three priorities max. The rest stays parked.</p>
+            </article>
+            <article class="feature-card">
+              <h3>Proof of progress</h3>
+              <p>Auto-generated updates that sound human.</p>
+            </article>
+            <article class="feature-card">
+              <h3>Launch runway</h3>
+              <p>Keep every team aligned on the last mile.</p>
+            </article>
+          </div>
+        </section>
+
+        <section id="workflow" class="workflow reveal">
+          <div class="section-title">
+            <h2>From idea to shipped in 3 beats</h2>
+            <p>Short loops, loud clarity.</p>
+          </div>
+          <div class="steps">
+            <div class="step">
+              <span class="step-number">01</span>
+              <div>
+                <h3>Define the sprint story</h3>
+                <p>Single sentence objective, shared instantly.</p>
+              </div>
+            </div>
+            <div class="step">
+              <span class="step-number">02</span>
+              <div>
+                <h3>Ship in focus lanes</h3>
+                <p>Work only where it moves the metric.</p>
+              </div>
+            </div>
+            <div class="step">
+              <span class="step-number">03</span>
+              <div>
+                <h3>Celebrate the release</h3>
+                <p>Auto recap, no extra meetings.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="pricing" class="pricing reveal">
+          <div class="section-title">
+            <h2>Pricing that stays simple</h2>
+            <p>Start free, scale when you are ready.</p>
+          </div>
+          <div class="pricing-grid">
+            <div class="price-card">
+              <h3>Starter</h3>
+              <p class="price">$0</p>
+              <ul>
+                <li>Up to 3 projects</li>
+                <li>Decision vault</li>
+                <li>Weekly recaps</li>
+              </ul>
+              <button class="ghost">Get started</button>
+            </div>
+            <div class="price-card featured">
+              <div class="pill">Most popular</div>
+              <h3>Growth</h3>
+              <p class="price">$24</p>
+              <ul>
+                <li>Unlimited projects</li>
+                <li>Launch runway</li>
+                <li>Instant status sync</li>
+              </ul>
+              <button class="button">Choose Growth</button>
+            </div>
+            <div class="price-card">
+              <h3>Enterprise</h3>
+              <p class="price">Custom</p>
+              <ul>
+                <li>Security reviews</li>
+                <li>Dedicated success</li>
+                <li>Custom workflows</li>
+              </ul>
+              <button class="ghost">Talk to sales</button>
+            </div>
+          </div>
+        </section>
+
+        <section id="cta" class="cta reveal">
+          <div>
+            <h2>Ready to keep the pace?</h2>
+            <p>Join the waitlist and get early access to silly-time.</p>
+          </div>
+          <a class="button" href="#waitlist-form">Join now</a>
+        </section>
+      </main>
+
+      <footer class="footer shell">
+        <span>Built for teams who hate drift.</span>
+        <div class="footer-links">
+          <a href="#features">Features</a>
+          <a href="#pricing">Pricing</a>
+          <a href="#cta">Contact</a>
+        </div>
+      </footer>
     </div>
+
+    <script src="app.js"></script>
   </body>
-  <script src="app.js"></script>
 </html>
