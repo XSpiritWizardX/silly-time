@@ -1,5 +1,4 @@
 const reveals = document.querySelectorAll('.reveal');
-
 const observer = new IntersectionObserver(
   (entries) => {
     entries.forEach((entry) => {
@@ -12,26 +11,27 @@ const observer = new IntersectionObserver(
   { threshold: 0.2 }
 );
 
-reveals.forEach((el) => observer.observe(el));
+reveals.forEach((section) => observer.observe(section));
 
-const form = document.getElementById('waitlist-form');
-const message = document.getElementById('waitlist-message');
+const form = document.getElementById('waitlistForm');
+const emailInput = document.getElementById('emailInput');
+const formNote = document.getElementById('formNote');
+const previewBtn = document.getElementById('previewBtn');
 
-if (form && message) {
-  form.addEventListener('submit', (event) => {
-    event.preventDefault();
-    const button = form.querySelector('button');
-    const email = form.querySelector('input');
+form.addEventListener('submit', (event) => {
+  event.preventDefault();
+  const email = emailInput.value.trim();
+  if (!email) return;
 
-    if (button) button.disabled = true;
-    if (email) email.value = '';
+  formNote.textContent = `Thanks! ${email} is on the list. We will be in touch.`;
+  formNote.style.color = '#1e1b1a';
+  emailInput.value = '';
+});
 
-    message.textContent = 'You are in. We will send early access details soon.';
-    message.classList.add('pulse');
-
-    setTimeout(() => {
-      if (button) button.disabled = false;
-      message.classList.remove('pulse');
-    }, 2000);
-  });
-}
+previewBtn.addEventListener('click', () => {
+  previewBtn.textContent = 'Preview loading...';
+  previewBtn.disabled = true;
+  setTimeout(() => {
+    previewBtn.textContent = 'Preview queued. Check your inbox.';
+  }, 900);
+});
