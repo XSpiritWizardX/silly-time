@@ -1,37 +1,46 @@
-const reveals = document.querySelectorAll('.reveal');
-const observer = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('is-visible');
-        observer.unobserve(entry.target);
-      }
-    });
-  },
-  { threshold: 0.2 }
-);
+const statusMessage = (text, isError = false) => {
+  const status = document.querySelector(".form-status");
+  if (!status) return;
+  status.textContent = text;
+  status.style.color = isError ? "#d62828" : "#1f1a17";
+};
 
-reveals.forEach((section) => observer.observe(section));
+const handleWaitlist = () => {
+  const form = document.querySelector("#waitlist-form");
+  if (!form) return;
 
-const form = document.getElementById('waitlistForm');
-const emailInput = document.getElementById('emailInput');
-const formNote = document.getElementById('formNote');
-const previewBtn = document.getElementById('previewBtn');
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const email = new FormData(form).get("email");
+    if (!email) {
+      statusMessage("Add an email to join the ritual.", true);
+      return;
+    }
+    statusMessage("You are on the list. We will ping you soon!");
+    form.reset();
+  });
+};
 
-form.addEventListener('submit', (event) => {
-  event.preventDefault();
-  const email = emailInput.value.trim();
-  if (!email) return;
+const handleReveal = () => {
+  const reveals = document.querySelectorAll(".reveal");
+  if (!reveals.length) return;
 
-  formNote.textContent = `Thanks! ${email} is on the list. We will be in touch.`;
-  formNote.style.color = '#1e1b1a';
-  emailInput.value = '';
-});
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.2 }
+  );
 
-previewBtn.addEventListener('click', () => {
-  previewBtn.textContent = 'Preview loading...';
-  previewBtn.disabled = true;
-  setTimeout(() => {
-    previewBtn.textContent = 'Preview queued. Check your inbox.';
-  }, 900);
+  reveals.forEach((el) => observer.observe(el));
+};
+
+document.addEventListener("DOMContentLoaded", () => {
+  handleWaitlist();
+  handleReveal();
 });
