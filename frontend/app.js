@@ -1,89 +1,98 @@
-const baseWaitlistCount = 1248;
-const storageKey = 'silly_time_waitlist';
+(() => {
+  const revealEls = document.querySelectorAll('.reveal');
 
-function readWaitlist() {
-  try {
-    const raw = localStorage.getItem(storageKey);
-    const parsed = raw ? JSON.parse(raw) : [];
-    return Array.isArray(parsed) ? parsed : [];
-  } catch {
-    return [];
-  }
-}
+  const revealAll = () => revealEls.forEach((el) => el.classList.add('is-visible'));
 
-function writeWaitlist(entries) {
-  localStorage.setItem(storageKey, JSON.stringify(entries));
-}
-
-function updateCount() {
-  const el = document.getElementById('waitlist-count');
-  if (!el) return;
-  const total = baseWaitlistCount + readWaitlist().length;
-  el.textContent = String(total);
-}
-
-function initReveal() {
-  const items = document.querySelectorAll('.reveal');
   if (!('IntersectionObserver' in window)) {
-    items.forEach((item) => item.classList.add('is-visible'));
-    return;
+    revealAll();
+  } else {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.14, rootMargin: '0px 0px -40px 0px' }
+    );
+    revealEls.forEach((el) => observer.observe(el));
   }
 
-  const observer = new IntersectionObserver(
-    (entries, obs) => {
-      entries.forEach((entry) => {
-        if (!entry.isIntersecting) return;
-        const delay = entry.target.dataset.delay;
-        if (delay) entry.target.style.transitionDelay = `${delay}ms`;
-        entry.target.classList.add('is-visible');
-        obs.unobserve(entry.target);
-      });
-    },
-    { threshold: 0.18, rootMargin: '0px 0px -40px 0px' }
-  );
+  const STORAGE_KEY = 'silly_time_waitlist_v1';
+  const BASE_WAITLIST = 1247;
 
-  items.forEach((item) => observer.observe(item));
-}
+  const form = document.getElementById('waitlistForm');
+  const emailInput = document.getElementById('email');
+  const note = document.getElementById('formNote');
+  const countEl = document.getElementById('waitlistCount');
+  const submitButton = form ? form.querySelector("button[type='submit']") : null;
 
-function initWaitlistForm() {
-  const form = document.getElementById('waitlist-form');
-  const note = document.getElementById('form-note');
-  if (!form || !note) return;
+  const loadEmails = () => {
+    try {
+      const raw = localStorage.getItem(STORAGE_KEY);
+      const parsed = raw ? JSON.parse(raw) : [];
+      return Array.isArray(parsed) ? parsed : [];
+    } catch {
+      return [];
+    }
+  };
 
-  const button = form.querySelector('button[type="submit"]');
+  const saveEmails = (emails) => {
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(emails));
+    } catch {
+      // Ignore storage errors in restricted environments.
+    }
+  };
+
+  const updateCount = (emails) => {
+    if (countEl) {
+      countEl.textContent = String(BASE_WAITLIST + emails.length);
+    }
+  };
+
+  const setNote = (message, state) => {
+    if (!note) return;
+    note.textContent = message;
+    note.dataset.state = state;
+  };
+
+  const emails = loadEmails();
+  updateCount(emails);
+
+  if (!form || !emailInput || !submitButton) return;
 
   form.addEventListener('submit', (event) => {
     event.preventDefault();
 
-    const data = new FormData(form);
-    const name = String(data.get('name') || '').trim();
-    const email = String(data.get('email') || '').trim();
+    const email = emailInput.value.trim().toLowerCase();
+    const isValid = /^\S+@\S+\.\S+$/.test(email);
 
-    if (!name || !email || !email.includes('@')) {
-      note.textContent = 'Add a valid name and email to join the waitlist.';
+    if (!isValid) {
+      setNote('Enter a valid email address.', 'error');
+      emailInput.focus();
       return;
     }
 
-    button.disabled = true;
-    button.textContent = 'Saving...';
-    note.textContent = 'Claiming your spot...';
+    if (emails.includes(email)) {
+      setNote('You are already on the list with this email.', 'ok');
+      return;
+    }
 
-    window.setTimeout(() => {
-      const current = readWaitlist();
-      current.push({ name, email, at: new Date().toISOString() });
-      writeWaitlist(current);
-      updateCount();
+    submitButton.disabled = true;
+    const previousText = submitButton.textContent;
+    submitButton.textContent = 'Saving...';
 
-      note.textContent = `You are in, ${name}. We will email ${email} soon.`;
+    setTimeout(() => {
+      emails.push(email);
+      saveEmails(emails);
+      updateCount(emails);
+      setNote('Spot saved. Launch updates are on the way.', 'ok');
       form.reset();
-      button.disabled = false;
-      button.textContent = 'Reserve My Spot';
-    }, 700);
+      submitButton.disabled = false;
+      submitButton.textContent = previousText;
+    }, 550);
   });
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-  updateCount();
-  initReveal();
-  initWaitlistForm();
-});
+})();
