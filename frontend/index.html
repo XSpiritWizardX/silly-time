@@ -10,7 +10,7 @@
     <link rel='stylesheet' href='styles.css' />
     <script defer src='app.js'></script>
   </head>
-  <body>
+  <body id='top'>
     <div class='page'>
       <div class='bg-grid' aria-hidden='true'></div>
       <div class='orb orb--one' aria-hidden='true'></div>
@@ -27,114 +27,111 @@
         <a class='button button--small' href='#cta'>Join Waitlist</a>
       </header>
 
-      <main class='shell'>
-        <section class='hero reveal' id='top'>
+      <main>
+        <section class='hero shell reveal'>
           <div class='hero-copy'>
-            <p class='eyebrow'>Make every minute delightfully unproductive</p>
-            <h1>Turn dead time into silly-time.</h1>
-            <p class='hero-lead'>A playful ritual engine for teams that think better when they laugh first. Launch mini-games, absurd prompts, and timed chaos in one tap.</p>
+            <p class='eyebrow'>Time management for chaotic geniuses</p>
+            <h1>Make every minute silly, focused, and wildly fun.</h1>
+            <p class='lead'>silly-time turns boring schedules into playful missions so your team actually shows up, ships fast, and laughs while doing it.</p>
             <div class='hero-actions'>
               <a class='button' href='#cta'>Get Early Access</a>
-              <a class='button button--ghost' href='#workflow'>See How It Works</a>
+              <a class='button button--ghost' href='#features'>See Features</a>
             </div>
-            <p class='social-proof'><span id='waitlist-count'>1248</span> humans already on the waitlist.</p>
           </div>
-
-          <aside class='hero-panel reveal' data-delay='120' aria-label='Live activity preview'>
-            <div class='panel-head'>
-              <p class='panel-title'>Now running</p>
-              <span class='panel-pill'>Room: Brainstorm-07</span>
+          <div class='hero-panel'>
+            <div class='stat'>
+              <span class='stat-number'>4.9/5</span>
+              <span class='stat-label'>focus score from beta teams</span>
             </div>
-            <div class='timer'>03:21</div>
-            <p class='panel-copy'>Prompt: Pitch a feature as if you are a pirate radio host.</p>
-            <ul class='pulse-list'>
-              <li><span></span> 19 people riffing</li>
-              <li><span></span> 84 ideas captured</li>
-              <li><span></span> 7 demos scheduled</li>
-            </ul>
-          </aside>
-        </section>
-
-        <section class='features reveal' id='features'>
-          <h2>Built for creative chaos</h2>
-          <div class='feature-grid'>
-            <article class='feature-card reveal' data-delay='60'>
-              <h3>Silly Sprints</h3>
-              <p>Spin up 5-minute games that wake up stalled meetings without derailing your roadmap.</p>
-            </article>
-            <article class='feature-card reveal' data-delay='120'>
-              <h3>Prompt Lab</h3>
-              <p>Generate weirdly useful prompts tailored to your team, product stage, and energy level.</p>
-            </article>
-            <article class='feature-card reveal' data-delay='180'>
-              <h3>Replay Reel</h3>
-              <p>Capture highlights, jokes, and surprising wins so ideas survive longer than a call.</p>
-            </article>
+            <div class='stat'>
+              <span class='stat-number'>31%</span>
+              <span class='stat-label'>faster sprint completion</span>
+            </div>
+            <div class='stat'>
+              <span class='stat-number'>0%</span>
+              <span class='stat-label'>calendar boredom detected</span>
+            </div>
           </div>
         </section>
 
-        <section class='workflow reveal' id='workflow'>
-          <h2>Workflow that stays fast</h2>
+        <section id='features' class='section shell'>
+          <h2 class='section-title reveal'>Features that keep momentum weird and useful</h2>
+          <div class='card-grid'>
+            <article class='card reveal'>
+              <h3>Mood-based planning</h3>
+              <p>Match task intensity to your team energy so hard work lands at the right moment.</p>
+            </article>
+            <article class='card reveal'>
+              <h3>Spin-the-priority wheel</h3>
+              <p>Break deadlocks with weighted priorities that feel playful and still stay strategic.</p>
+            </article>
+            <article class='card reveal'>
+              <h3>Chaos-safe reminders</h3>
+              <p>Smart nudges adapt timing and tone before deadlines become mini disasters.</p>
+            </article>
+            <article class='card reveal'>
+              <h3>Victory confetti logs</h3>
+              <p>Celebrate shipped work with an activity feed your whole crew can actually enjoy.</p>
+            </article>
+          </div>
+        </section>
+
+        <section id='workflow' class='section shell'>
+          <h2 class='section-title reveal'>A workflow that runs in three tiny moves</h2>
           <div class='steps'>
-            <article class='step reveal' data-delay='60' data-step='1'>
-              <h3>Pick a vibe</h3>
-              <p>Choose warm-up, brainstorming, or reset mode. silly-time adapts the format instantly.</p>
+            <article class='step reveal'>
+              <span>01</span>
+              <h3>Drop your goals</h3>
+              <p>Import tasks from your stack and tag intent, urgency, and energy level.</p>
             </article>
-            <article class='step reveal' data-delay='120' data-step='2'>
-              <h3>Run the round</h3>
-              <p>Timers, prompts, and team cues keep everyone moving while reducing awkward silence.</p>
+            <article class='step reveal'>
+              <span>02</span>
+              <h3>Auto-build your day</h3>
+              <p>silly-time generates a playful schedule with breaks, focus blocks, and checkpoints.</p>
             </article>
-            <article class='step reveal' data-delay='180' data-step='3'>
-              <h3>Ship the good stuff</h3>
-              <p>Export useful ideas into your backlog with context, owners, and next actions.</p>
+            <article class='step reveal'>
+              <span>03</span>
+              <h3>Ship and high-five</h3>
+              <p>Track wins, unblock quickly, and share progress snapshots without status-meeting drag.</p>
             </article>
           </div>
         </section>
 
-        <section class='pricing reveal' id='pricing'>
-          <h2>Simple launch pricing</h2>
+        <section id='pricing' class='section shell'>
+          <h2 class='section-title reveal'>Simple pricing, serious momentum</h2>
           <div class='pricing-grid'>
-            <article class='price-card'>
-              <p class='tier'>Starter</p>
-              <p class='price'>$0</p>
-              <p class='price-note'>for tiny teams testing the silly waters</p>
+            <article class='price-card reveal'>
+              <p class='price-tier'>Starter</p>
+              <p class='price'><strong>$0</strong> / month</p>
+              <p>For solo builders who want time to feel lighter.</p>
             </article>
-            <article class='price-card price-card--featured'>
-              <p class='tier'>Studio</p>
-              <p class='price'>$19<span>/seat</span></p>
-              <p class='price-note'>full prompt lab, analytics, and integrations</p>
+            <article class='price-card price-card--featured reveal'>
+              <p class='price-tier'>Team</p>
+              <p class='price'><strong>$19</strong> / user</p>
+              <p>For teams ready to replace calendar dread with playful execution.</p>
             </article>
-            <article class='price-card'>
-              <p class='tier'>Enterprise</p>
-              <p class='price'>Custom</p>
-              <p class='price-note'>security review, SSO, and dedicated setup</p>
+            <article class='price-card reveal'>
+              <p class='price-tier'>Studio</p>
+              <p class='price'><strong>$49</strong> / user</p>
+              <p>For organizations that want custom rituals, analytics, and admin controls.</p>
             </article>
           </div>
         </section>
 
-        <section class='cta reveal' id='cta'>
-          <div class='cta-copy'>
-            <h2>Join the waitlist</h2>
-            <p>Early members get private beta access, onboarding sessions, and launch pricing locked for one year.</p>
+        <section id='cta' class='section shell reveal'>
+          <div class='cta'>
+            <h2>Join the silly-time waitlist</h2>
+            <p>Be first in line for launch perks, premium templates, and limited founding pricing.</p>
+            <p class='waitlist-count'><strong><span id='waitlistCount'>1247</span></strong> people already waiting.</p>
+            <form id='waitlistForm' class='waitlist-form' novalidate>
+              <label class='sr-only' for='email'>Email</label>
+              <input id='email' name='email' type='email' placeholder='you@team.com' required />
+              <button class='button' type='submit'>Save My Spot</button>
+            </form>
+            <p id='formNote' class='form-note' aria-live='polite'></p>
           </div>
-          <form id='waitlist-form' class='waitlist-form' novalidate>
-            <label>
-              <span>Name</span>
-              <input type='text' name='name' placeholder='Avery Quinn' required />
-            </label>
-            <label>
-              <span>Email</span>
-              <input type='email' name='email' placeholder='avery@team.com' required />
-            </label>
-            <button class='button' type='submit'>Reserve My Spot</button>
-            <p id='form-note' class='form-note' aria-live='polite'></p>
-          </form>
         </section>
       </main>
-
-      <footer class='shell footer'>
-        <p>2026 silly-time. Work serious, play smarter.</p>
-      </footer>
     </div>
   </body>
 </html>
