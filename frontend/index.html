@@ -6,8 +6,9 @@
     <title>silly-time</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="styles.css" />
+    <script defer src="app.js"></script>
   </head>
   <body>
     <div class="page">
@@ -16,174 +17,94 @@
       <div class="orb orb--three"></div>
 
       <header class="nav shell">
-        <div class="logo">silly-time</div>
+        <a class="logo" href="#top">silly-time</a>
         <nav class="nav-links">
           <a href="#features">Features</a>
           <a href="#workflow">Workflow</a>
           <a href="#pricing">Pricing</a>
         </nav>
-        <a class="button" href="#cta">Get Access</a>
+        <a class="button button--small" href="#cta">Join Waitlist</a>
       </header>
 
       <main class="shell">
         <section class="hero reveal" id="top">
           <div class="hero-copy">
-            <span class="badge">Ship faster · stay aligned</span>
-            <h1>Where playful rituals meet serious product momentum.</h1>
-            <p>
-              silly-time turns scattered updates into a high-energy, lightweight rhythm for teams. Capture wins,
-              surface blockers, and keep focus without the meeting drag.
-            </p>
+            <span class="badge">Ship faster • stay aligned</span>
+            <h1>Turn chaotic calendars into team momentum.</h1>
+            <p>silly-time gives product teams one playful command center for priorities, focus windows, and launch rituals.</p>
             <div class="hero-actions">
-              <a class="button button--primary" href="#cta">Join the waitlist</a>
-              <a class="button button--ghost" href="#features">See the flow</a>
+              <a class="button" href="#cta">Get Early Access</a>
+              <a class="button button--ghost" href="#workflow">See Workflow</a>
             </div>
-            <div class="hero-metrics">
-              <div>
-                <span class="metric">12 min</span>
-                <span class="metric-label">avg daily sync</span>
-              </div>
-              <div>
-                <span class="metric">4x</span>
-                <span class="metric-label">decision velocity</span>
-              </div>
-              <div>
-                <span class="metric">98%</span>
-                <span class="metric-label">team clarity</span>
-              </div>
+            <div class="hero-proof">
+              <strong>2,400+</strong>
+              <span>teams already on the list</span>
             </div>
           </div>
           <div class="hero-card">
-            <div class="card-top">
-              <span class="pill">Live Ritual</span>
-              <span class="pill pill--accent">Audio + Notes</span>
-            </div>
-            <h3>Today’s silly-time</h3>
+            <p class="hero-card__title">Today in silly-time</p>
             <ul>
-              <li>Celebrate: shipped onboarding revamp 🎉</li>
-              <li>Blocker: QA bandwidth on mobile</li>
-              <li>Next: launch experiment by Wed</li>
+              <li><span>09:00</span> Design crit sync</li>
+              <li><span>11:30</span> Focus sprint</li>
+              <li><span>15:00</span> Launch checklist</li>
             </ul>
-            <div class="card-footer">
-              <span>Next ritual in 3h 12m</span>
-              <button class="button button--tiny" type="button">Nudge team</button>
-            </div>
+            <div class="pulse">Live updates every minute</div>
           </div>
         </section>
 
         <section class="features reveal" id="features">
-          <div class="section-head">
-            <h2>Make ritual feel like a power-up.</h2>
-            <p>Designed for product leaders who want visibility without micromanagement.</p>
-          </div>
-          <div class="feature-grid">
-            <article class="feature">
-              <h3>Signal-first updates</h3>
-              <p>Auto-summarized highlights keep everyone aligned in under 5 minutes.</p>
+          <h2>Everything your launch week needs</h2>
+          <div class="grid-3">
+            <article class="card">
+              <h3>Time Blocks</h3>
+              <p>Auto-build focused work blocks from tickets and meeting load.</p>
             </article>
-            <article class="feature">
-              <h3>Momentum scoreboard</h3>
-              <p>Track weekly wins, risk heat, and team energy in one punchy dashboard.</p>
+            <article class="card">
+              <h3>Team Rhythm</h3>
+              <p>Shared ceremonies that flex with your sprint, not against it.</p>
             </article>
-            <article class="feature">
-              <h3>Async + live hybrid</h3>
-              <p>Blend async check-ins with a quick live ritual when it matters.</p>
-            </article>
-            <article class="feature">
-              <h3>Decision threads</h3>
-              <p>Capture context around choices so future you can move faster.</p>
+            <article class="card">
+              <h3>Launch Radar</h3>
+              <p>One board that highlights blockers, owners, and timing drift.</p>
             </article>
           </div>
         </section>
 
         <section class="workflow reveal" id="workflow">
-          <div class="section-head">
-            <h2>One ritual, three moments.</h2>
-            <p>Shift from status to strategy in a single flow.</p>
-          </div>
-          <div class="workflow-steps">
-            <div class="step">
-              <span class="step-number">01</span>
-              <h3>Warm-up</h3>
-              <p>Collect quick wins and risks asynchronously before the ritual.</p>
-            </div>
-            <div class="step">
-              <span class="step-number">02</span>
-              <h3>Pulse</h3>
-              <p>Run a 12-minute live sync guided by prompts and auto-notes.</p>
-            </div>
-            <div class="step">
-              <span class="step-number">03</span>
-              <h3>Action</h3>
-              <p>Assign micro-decisions and publish the recap instantly.</p>
-            </div>
-          </div>
+          <h2>Simple flow, serious velocity</h2>
+          <ol class="steps">
+            <li><strong>Connect tools</strong><span>Link Jira, Calendar, and Slack in under 3 minutes.</span></li>
+            <li><strong>Set your cadence</strong><span>Pick weekly rituals and ideal deep-work windows.</span></li>
+            <li><strong>Run launch mode</strong><span>Track daily momentum and keep everyone in sync.</span></li>
+          </ol>
         </section>
 
         <section class="pricing reveal" id="pricing">
-          <div class="section-head">
-            <h2>Pricing built for teams that ship.</h2>
-            <p>Start playful, scale with confidence.</p>
-          </div>
-          <div class="pricing-grid">
+          <h2>Pricing that scales with your crew</h2>
+          <div class="grid-2">
             <article class="price-card">
-              <h3>Starter</h3>
+              <p class="plan">Starter</p>
               <p class="price">$0</p>
-              <ul>
-                <li>Up to 8 teammates</li>
-                <li>Async rituals</li>
-                <li>Weekly summary</li>
-              </ul>
-              <button class="button button--ghost" type="button">Get started</button>
+              <p>Up to 6 people, weekly planning, basic timeline.</p>
             </article>
-            <article class="price-card price-card--highlight">
-              <div class="flag">Most loved</div>
-              <h3>Momentum</h3>
-              <p class="price">$12</p>
-              <ul>
-                <li>Unlimited rituals</li>
-                <li>Live audio rooms</li>
-                <li>Decision threads</li>
-              </ul>
-              <button class="button button--primary" type="button">Start Momentum</button>
-            </article>
-            <article class="price-card">
-              <h3>Studio</h3>
-              <p class="price">$29</p>
-              <ul>
-                <li>Custom rituals</li>
-                <li>Advanced analytics</li>
-                <li>Dedicated success</li>
-              </ul>
-              <button class="button button--ghost" type="button">Talk to us</button>
+            <article class="price-card price-card--accent">
+              <p class="plan">Studio</p>
+              <p class="price">$12<span>/seat</span></p>
+              <p>Unlimited teammates, launch radar, priority support.</p>
             </article>
           </div>
         </section>
 
         <section class="cta reveal" id="cta">
-          <div class="cta-card">
-            <div>
-              <h2>Ready to make ritual your superpower?</h2>
-              <p>Join the waitlist and get early access to silly-time.</p>
-            </div>
-            <form class="waitlist" id="waitlist-form">
-              <input type="email" name="email" placeholder="you@company.com" required />
-              <button class="button button--primary" type="submit">Join waitlist</button>
-              <p class="form-status" role="status" aria-live="polite"></p>
-            </form>
-          </div>
+          <h2>Join the silly-time waitlist</h2>
+          <p>Get beta access, onboarding perks, and monthly product drops.</p>
+          <form id="waitlistForm" class="waitlist" novalidate>
+            <input id="email" type="email" name="email" placeholder="you@team.com" required />
+            <button type="submit" class="button">Reserve My Spot</button>
+          </form>
+          <p id="formNote" class="form-note" aria-live="polite"></p>
         </section>
       </main>
-
-      <footer class="footer shell">
-        <span>© 2026 silly-time</span>
-        <div class="footer-links">
-          <a href="#top">Back to top</a>
-          <a href="#pricing">Pricing</a>
-          <a href="#features">Features</a>
-        </div>
-      </footer>
     </div>
-    <script src="app.js"></script>
   </body>
 </html>
